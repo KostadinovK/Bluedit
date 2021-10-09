@@ -1,5 +1,9 @@
+using BlueditServer.Data;
+using BlueditServer.Data.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,6 +24,20 @@ namespace BlueditServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<BlueditDbContext>(opts => opts.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+
+            services
+                .AddIdentity<User, IdentityRole<string>>(options =>
+                {
+                    options.Password.RequiredLength = 6;
+                    options.Password.RequireDigit = false;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.User.RequireUniqueEmail = false;
+                })
+                .AddEntityFrameworkStores<BlueditDbContext>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
