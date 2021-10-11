@@ -27,25 +27,22 @@ namespace BlueditServer.Controllers
 
             var user = await identityService.RegisterAsync(model.Username, model.Password, model.ConfirmPassword);
 
-            if (user.Id == null)
-            {
-                return BadRequest("User cannot be registered please try again");
-            }
-
             return Ok(user);
         }
 
         [AllowAnonymous]
         [HttpPost]
         [Route(nameof(Login))]
-        public IActionResult Login(RegisterRequestModel model)
+        public async Task<IActionResult> Login(LoginRequestModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest("Data is not valid");
             }
 
-            return Ok("It is working...");
+            var user = await identityService.LoginAsync(model.Username, model.Password);
+
+            return Ok(user);
         }
     }
 }

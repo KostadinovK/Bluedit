@@ -66,10 +66,7 @@ namespace BlueditServer.Services.Identity
 
             if (!res.Succeeded)
             {
-                return new UserAuthResponseModel()
-                {
-                    Id = null
-                };
+                throw new ArgumentException("A problem occured with the registration please try again");
             }
 
             var token = GenerateJwtToken(newUser.Id, newUser.UserName);
