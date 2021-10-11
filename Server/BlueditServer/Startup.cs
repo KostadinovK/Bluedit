@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using BlueditServer.Data;
 using BlueditServer.Data.Models;
+using BlueditServer.Services.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -65,6 +65,8 @@ namespace BlueditServer
                         ClockSkew = TimeSpan.Zero
                     };
                 });
+
+            services.AddTransient<IIdentityService, IdentityService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
