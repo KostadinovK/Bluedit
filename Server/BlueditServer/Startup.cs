@@ -85,6 +85,7 @@ namespace BlueditServer
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlueditServer v1"));
             }
 
+            app.UseExceptionHandler("/api/Error");
             app.UseHttpsRedirection();
 
             app.UseRouting();
