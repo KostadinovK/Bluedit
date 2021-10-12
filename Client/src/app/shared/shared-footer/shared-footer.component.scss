@@ -1,0 +1,22 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: var(--blue);
+
+  .footer-content {
+    display: flex;
+    align-items: center;
+
+    h3 {
+      color: white;
+    }
+  }
+
+  .rights p {
+    color: white;
+  }
+}

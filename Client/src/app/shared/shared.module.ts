@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedHeaderComponent } from './shared-header/shared-header.component';
 import { SharedFooterComponent } from './shared-footer/shared-footer.component';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -14,8 +15,9 @@ import { SharedFooterComponent } from './shared-footer/shared-footer.component';
     SharedHeaderComponent,
     SharedFooterComponent
   ],
-  imports: [
-    CommonModule
-  ]
+    imports: [
+        CommonModule,
+        RouterModule
+    ]
 })
 export class SharedModule { }

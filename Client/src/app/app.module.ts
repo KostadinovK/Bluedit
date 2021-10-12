@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { GuestPageComponent } from './guest-page/guest-page.component';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     SharedModule,
     UserModule,
-    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
