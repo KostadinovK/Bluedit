@@ -1,0 +1,31 @@
+.wrap {
+  margin-bottom: 50px;
+
+  .row {
+    margin-right: 0px;
+
+    .form-wrapper {
+      margin: 0 auto;
+    }
+  }
+
+  .register-form {
+    margin-top: 10vh;
+    border: 3px solid grey;
+    padding: 7% 15%;
+    border-radius: 13px;
+
+    .register-heading {
+      text-align: center;
+      margin-bottom: 10%;
+    }
+
+    h5 {
+      margin-top: 30px;
+    }
+
+    .link {
+      cursor: pointer;
+    }
+  }
+}

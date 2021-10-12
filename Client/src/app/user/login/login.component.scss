@@ -1,0 +1,29 @@
+.wrap {
+  padding-bottom: 5%;
+
+  .row {
+    margin-right: 0px;
+
+    .form-wrapper {
+      margin: 0 auto;
+    }
+  }
+
+  .login-form {
+    margin-top: 10vh;
+    border: 3px solid grey;
+    padding: 15% 15%;
+    padding-top: 7%;
+    border-radius: 13px;
+
+    .login-heading {
+      text-align: center;
+      margin-bottom: 10%;
+    }
+
+    .link {
+      margin-top: 30px;
+      cursor: pointer;
+    }
+  }
+}
