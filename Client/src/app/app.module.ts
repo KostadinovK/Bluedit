@@ -9,11 +9,15 @@ import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
 import { AuthInterceptor } from './guards-and-interceptors/AuthInterceptor';
 import { AuthenticationGuard } from './guards-and-interceptors/AuthenticationGuard';
+import { HomePageComponent } from './home-page/home-page.component';
+import { UserHomePageComponent } from './user-home-page/user-home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GuestPageComponent
+    GuestPageComponent,
+    HomePageComponent,
+    UserHomePageComponent
   ],
   imports: [
     BrowserModule,

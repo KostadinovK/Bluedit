@@ -1,0 +1,6 @@
+<div *ngIf="!isLoggedIn">
+  <app-guest-page></app-guest-page>
+</div>
+<div *ngIf="isLoggedIn">
+  <app-user-home-page></app-user-home-page>
+</div>
