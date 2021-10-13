@@ -2,6 +2,8 @@ import { IAuthService } from './IAuthService';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import {Observable} from 'rxjs';
+import {AuthResponse} from '../../models/auth/AuthResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +19,17 @@ export class AuthService implements IAuthService {
     return false;
   }
 
-  register(username: string, password: string, confirmPassword: string) {
+  register(username: string, password: string, confirmPassword: string): Observable<AuthResponse> {
     if (password !== confirmPassword) {
       return;
     }
-    const data = this.http.post(this.registerUrl, {username, password, confirmPassword});
-    data.subscribe(v => console.log(v));
-    console.log('User registered...');
+
+    return this.http.post<AuthResponse>(this.registerUrl, {username, password, confirmPassword});
   }
 
-  login(username: string, password: string) {
+  login(username: string, password: string): Observable<AuthResponse> {
     console.log('User logged in...');
+    return this.http.post<AuthResponse>(this.registerUrl, {username, password});
   }
 
   logout() {

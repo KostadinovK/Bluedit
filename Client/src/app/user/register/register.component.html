@@ -28,6 +28,9 @@
         </div>
 
         <button type="submit" class="btn btn-outline-primary">Register</button>
+        <div *ngIf="formError.length > 0" class="alert alert-danger">
+          {{formError}}
+        </div>
         <h5>Already have an account?</h5>
         <a routerLink="/login" class="link">Login</a>
       </form>
