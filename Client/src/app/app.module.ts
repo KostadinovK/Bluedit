@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { GuestPageComponent } from './guest-page/guest-page.component';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
-import {AuthInterceptor} from './services/auth/AuthInterceptor';
+import { AuthInterceptor } from './guards-and-interceptors/AuthInterceptor';
+import { AuthenticationGuard } from './guards-and-interceptors/AuthenticationGuard';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {AuthInterceptor} from './services/auth/AuthInterceptor';
     UserModule,
   ],
   providers: [
+    AuthenticationGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
