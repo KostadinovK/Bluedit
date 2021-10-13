@@ -88,6 +88,11 @@ namespace BlueditServer
             app.UseExceptionHandler("/api/Error");
             app.UseHttpsRedirection();
 
+            app.UseCors(options => options
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
             app.UseRouting();
 
             app.UseAuthorization();
