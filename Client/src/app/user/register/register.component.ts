@@ -48,5 +48,4 @@ export class RegisterComponent implements OnInit {
         this.formError = err.error.error;
       });
   }
-
 }

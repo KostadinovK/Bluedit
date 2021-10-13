@@ -31,8 +31,7 @@ export class AuthService implements IAuthService {
   }
 
   login(username: string, password: string): Observable<AuthResponse> {
-    console.log('User logged in...');
-    return this.http.post<AuthResponse>(this.registerUrl, {username, password});
+    return this.http.post<AuthResponse>(this.loginUrl, {username, password});
   }
 
   logout() {
