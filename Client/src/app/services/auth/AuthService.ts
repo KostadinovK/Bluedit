@@ -1,3 +1,4 @@
+/* tslint:disable:no-trailing-whitespace */
 import { IAuthService } from './IAuthService';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -16,7 +17,9 @@ export class AuthService implements IAuthService {
   constructor(private http: HttpClient) {}
 
   isLoggedIn(): boolean {
-    return false;
+    const token = this.getToken();
+
+    return !!token;
   }
 
   register(username: string, password: string, confirmPassword: string): Observable<AuthResponse> {
@@ -33,5 +36,17 @@ export class AuthService implements IAuthService {
   }
 
   logout() {
+    localStorage.clear();
+  }
+
+  getToken(): string {
+    return localStorage.getItem('token');
+  }
+
+  saveAuthInfo(authInfo: AuthResponse) {
+    localStorage.setItem('username', authInfo.username);
+    localStorage.setItem('token', authInfo.token);
+    localStorage.setItem('userId', authInfo.id);
+    localStorage.setItem('isAdmin', authInfo.isAdmin.toString());
   }
 }

@@ -10,4 +10,8 @@ export interface IAuthService {
   register(username: string, password: string, confirmPassword: string): Observable<AuthResponse>;
 
   logout();
+
+  saveAuthInfo(authInfo: AuthResponse);
+
+  getToken(): string;
 }

@@ -42,10 +42,7 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(this.username.value, this.password.value, this.confirmPassword.value)
       .subscribe(async data => {
-        localStorage.setItem('username', data.username);
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('userId', data.id);
-        localStorage.setItem('isAdmin', data.isAdmin.toString());
+        this.authService.saveAuthInfo(data);
         await this.router.navigate(['/']);
       }, err => {
         this.formError = err.error.error;
