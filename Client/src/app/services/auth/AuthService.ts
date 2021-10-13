@@ -43,6 +43,10 @@ export class AuthService implements IAuthService {
     return localStorage.getItem('token');
   }
 
+  getUsername(): string {
+    return localStorage.getItem('username');
+  }
+
   saveAuthInfo(authInfo: AuthResponse) {
     localStorage.setItem('username', authInfo.username);
     localStorage.setItem('token', authInfo.token);

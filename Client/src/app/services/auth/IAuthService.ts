@@ -14,4 +14,6 @@ export interface IAuthService {
   saveAuthInfo(authInfo: AuthResponse);
 
   getToken(): string;
+
+  getUsername(): string;
 }
