@@ -46,6 +46,10 @@ export class AuthService implements IAuthService {
     return localStorage.getItem('username');
   }
 
+  getUserId(): string {
+    return localStorage.getItem('userId');
+  }
+
   saveAuthInfo(authInfo: AuthResponse) {
     localStorage.setItem('username', authInfo.username);
     localStorage.setItem('token', authInfo.token);

@@ -16,4 +16,6 @@ export interface IAuthService {
   getToken(): string;
 
   getUsername(): string;
+
+  getUserId(): string;
 }

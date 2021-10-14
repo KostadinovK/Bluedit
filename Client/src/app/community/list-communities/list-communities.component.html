@@ -1,0 +1,10 @@
+<div class="communities">
+  <div *ngFor="let community of communities;" class="card w-50" (click)="selectCommunity(community.id)">
+    <img [src]="community.headImageUrl" class="card-img-top" alt="community head image">
+    <div class="card-body">
+      <h5>{{community.name}}</h5>
+      <p *ngIf="community.userHasJoined">Joined</p>
+      <p *ngIf="community.creatorId === userId">Created</p>
+    </div>
+  </div>
+</div>

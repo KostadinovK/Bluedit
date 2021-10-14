@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CommunityService } from '../services/community/CommunityService';
+import {Community} from '../models/community/Community';
+import {AuthService} from '../services/auth/AuthService';
 
 @Component({
   selector: 'app-user-home-page',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-home-page.component.scss']
 })
 export class UserHomePageComponent implements OnInit {
+  communities: Community[];
 
-  constructor() { }
+  constructor(private communityService: CommunityService, private authService: AuthService) { }
 
-  ngOnInit(): void {
+  get userId() {
+    return this.authService.getUserId();
   }
 
+  ngOnInit(): void {
+    this.communityService.getAllCommunitiesNotJoinedOrCreatedByUser()
+      .subscribe(communities => this.communities = communities);
+  }
 }

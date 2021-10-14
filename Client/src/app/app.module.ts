@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 
@@ -13,6 +14,7 @@ import { AuthenticationGuard } from './guards-and-interceptors/AuthenticationGua
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserHomePageComponent } from './user-home-page/user-home-page.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +24,7 @@ import { UserHomePageComponent } from './user-home-page/user-home-page.component
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
