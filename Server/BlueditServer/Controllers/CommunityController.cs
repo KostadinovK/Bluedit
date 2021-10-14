@@ -15,6 +15,17 @@ namespace BlueditServer.Controllers
             this.communityService = communityService;
         }
 
+        [HttpGet]
+        [Route(nameof(GetAllCommunitiesThatAreNotJoinedOrCreatedByUser))]
+        public async Task<IActionResult> GetAllCommunitiesThatAreNotJoinedOrCreatedByUser()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var communities = await communityService.GetAllCommunitiesThatAreNotJoinedOrCreatedByUserAsync(userId);
+
+            return Ok(communities);
+        }
+
         [HttpPost]
         [Route(nameof(Create))]
         public async Task<IActionResult> Create(CreateCommunityRequestModel model)

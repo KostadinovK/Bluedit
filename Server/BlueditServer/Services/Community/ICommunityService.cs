@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using BlueditServer.Models.RequestModels.Community;
+using BlueditServer.Models.ResponseModels.Community;
 
 namespace BlueditServer.Services.Community
 {
@@ -8,5 +10,7 @@ namespace BlueditServer.Services.Community
         Task<bool> HasCommunityAsync(string name);
 
         Task CreateCommunityAsync(CreateCommunityRequestModel model, string userId);
+
+        Task<IList<CommunityResponseModel>> GetAllCommunitiesThatAreNotJoinedOrCreatedByUserAsync(string userId);
     }
 }
