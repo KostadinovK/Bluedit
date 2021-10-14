@@ -44,6 +44,16 @@ export class CreateCommunityComponent implements OnInit {
       return;
     }
 
+    if (!this.headImageUrl.value.startsWith('https://')) {
+      this.formError = 'Head Image Url should start with "https://"';
+      return;
+    }
+
+    if (this.coverImageUrl.value && !this.coverImageUrl.value.startsWith('https://')) {
+      this.formError = 'Cover Image Url should start with "https://"';
+      return;
+    }
+
     console.log(this.createFrom.value);
   }
 }
