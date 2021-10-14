@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GuestPageComponent } from './guest-page/guest-page.component';
 import { SharedModule } from './shared/shared.module';
 import { UserModule } from './user/user.module';
+import { CommunityModule } from './community/community.module';
 import { AuthInterceptor } from './guards-and-interceptors/AuthInterceptor';
 import { AuthenticationGuard } from './guards-and-interceptors/AuthenticationGuard';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -25,6 +26,7 @@ import { UserHomePageComponent } from './user-home-page/user-home-page.component
     AppRoutingModule,
     SharedModule,
     UserModule,
+    CommunityModule,
   ],
   providers: [
     AuthenticationGuard,

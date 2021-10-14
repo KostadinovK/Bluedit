@@ -1,0 +1,49 @@
+<div class="wrap">
+  <div class="row">
+    <div class="form-wrapper col-md-4">
+      <form [formGroup]="createFrom" class="community-form" (ngSubmit)="create()">
+        <h1 class="community-form-heading">Create Community</h1>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" placeholder="Should be one word and unique" formControlName="name">
+        </div>
+
+        <div *ngIf="name.touched && (name.errors?.required || name.errors?.minlength)" class="alert alert-danger">
+          Name field should be at least 3 chars!
+        </div>
+        <div *ngIf="name.touched && name.errors?.maxlength" class="alert alert-danger">
+          Name field should be max 30 chars!
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control" formControlName="description"></textarea>
+        </div>
+
+        <div *ngIf="description.touched && (description.errors?.required || description.errors?.minlength)" class="alert alert-danger">
+          Description should be at least 3 chars!
+        </div>
+        <div *ngIf="description.touched && description.errors?.maxlength" class="alert alert-danger">
+          Description should be max 500 chars!
+        </div>
+
+        <div class="form-group">
+          <label>Head Image Url</label>
+          <input type="text" class="form-control" formControlName="headImageUrl">
+        </div>
+
+        <div *ngIf="headImageUrl.touched && headImageUrl.errors?.required" class="alert alert-danger">
+          Head image url is required!
+        </div>
+
+        <div class="form-group">
+          <label>Cover Image Url</label>
+          <input type="text" class="form-control" placeholder="Optional" formControlName="coverImageUrl">
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">Create</button>
+      </form>
+    </div>
+  </div>
+</div>
+
