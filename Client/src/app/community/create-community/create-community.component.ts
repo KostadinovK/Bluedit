@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
+import {CommunityService} from '../../services/community/CommunityService';
 
 @Component({
   selector: 'app-create-community',
@@ -11,7 +12,7 @@ export class CreateCommunityComponent implements OnInit {
   createFrom: FormGroup;
   formError = '';
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private communityService: CommunityService) {
     this.createFrom = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
       description: ['', [Validators.required, Validators.minLength(3)], Validators.maxLength(500)],
@@ -54,6 +55,7 @@ export class CreateCommunityComponent implements OnInit {
       return;
     }
 
-    console.log(this.createFrom.value);
+    this.communityService.createCommunity(this.createFrom.value)
+      .subscribe(() => this.router.navigate(['/']), err => this.formError = err.error.error);
   }
 }

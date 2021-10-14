@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using BlueditServer.Data;
 using BlueditServer.Data.Models;
+using BlueditServer.Services.Community;
 using BlueditServer.Services.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -67,6 +68,7 @@ namespace BlueditServer
                 });
 
             services.AddTransient<IIdentityService, IdentityService>();
+            services.AddTransient<ICommunityService, CommunityService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

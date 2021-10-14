@@ -4,14 +4,16 @@ using BlueditServer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BlueditServer.Migrations
 {
     [DbContext(typeof(BlueditDbContext))]
-    partial class BlueditDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211014085108_AddCoverAndHeadImagesOnACommunity")]
+    partial class AddCoverAndHeadImagesOnACommunity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

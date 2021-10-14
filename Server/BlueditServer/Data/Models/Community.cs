@@ -15,7 +15,9 @@ namespace BlueditServer.Data.Models
 
         public string Description { get; set; }
 
-        public string ImageUrl { get; set; }
+        public string HeadImageUrl { get; set; }
+
+        public string CoverImageUrl { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
