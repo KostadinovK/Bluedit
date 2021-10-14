@@ -45,6 +45,11 @@ export class CreateCommunityComponent implements OnInit {
       return;
     }
 
+    if (this.name.value.includes(' ')) {
+      this.formError = 'Name should be only one word';
+      return;
+    }
+
     if (!this.headImageUrl.value.startsWith('https://')) {
       this.formError = 'Head Image Url should start with "https://"';
       return;

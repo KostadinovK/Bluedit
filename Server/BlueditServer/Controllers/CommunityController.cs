@@ -24,6 +24,11 @@ namespace BlueditServer.Controllers
                 return BadRequest("Data is not valid");
             }
 
+            if (model.Name.Contains(' '))
+            {
+                return BadRequest("Name should be only one word");
+            }
+
             if (!model.HeadImageUrl.StartsWith("https://"))
             {
                 return BadRequest("Head Image Url should start with 'https://'");
