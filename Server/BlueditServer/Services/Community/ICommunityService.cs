@@ -11,6 +11,10 @@ namespace BlueditServer.Services.Community
 
         Task CreateCommunityAsync(CreateCommunityRequestModel model, string userId);
 
+        Task<IList<CommunityResponseModel>> GetAllAsync(string userId);
+
+        Task<IList<CommunityResponseModel>> SearchAsync(string search, string userId);
+
         Task<IList<CommunityResponseModel>> GetAllCommunitiesThatAreNotJoinedOrCreatedByUserAsync(string userId);
     }
 }

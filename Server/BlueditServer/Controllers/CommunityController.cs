@@ -1,6 +1,8 @@
-﻿using System.Security.Claims;
+﻿using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BlueditServer.Models.RequestModels.Community;
+using BlueditServer.Models.ResponseModels.Community;
 using BlueditServer.Services.Community;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +15,25 @@ namespace BlueditServer.Controllers
         public CommunityController(ICommunityService communityService)
         {
             this.communityService = communityService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] string search)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            IList<CommunityResponseModel> communities = new List<CommunityResponseModel>();
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                communities = await communityService.SearchAsync(search, userId);
+            }
+            else
+            {
+                communities = await communityService.GetAllAsync(userId);
+            }
+
+            return Ok(communities);
         }
 
         [HttpGet]
