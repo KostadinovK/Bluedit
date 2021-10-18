@@ -13,6 +13,7 @@ import { AuthInterceptor } from './guards-and-interceptors/AuthInterceptor';
 import { AuthenticationGuard } from './guards-and-interceptors/AuthenticationGuard';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UserHomePageComponent } from './user-home-page/user-home-page.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -22,15 +23,16 @@ import { UserHomePageComponent } from './user-home-page/user-home-page.component
     HomePageComponent,
     UserHomePageComponent
   ],
-  imports: [
-    BrowserModule,
-    CommonModule,
-    HttpClientModule,
-    AppRoutingModule,
-    SharedModule,
-    UserModule,
-    CommunityModule,
-  ],
+    imports: [
+        BrowserModule,
+        CommonModule,
+        HttpClientModule,
+        AppRoutingModule,
+        SharedModule,
+        UserModule,
+        CommunityModule,
+        ReactiveFormsModule,
+    ],
   providers: [
     AuthenticationGuard,
     {

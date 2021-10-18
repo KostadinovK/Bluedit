@@ -5,4 +5,6 @@ export interface ICommunityService {
   createCommunity(data): Observable<any>;
 
   getAllCommunitiesNotJoinedOrCreatedByUser(): Observable<Community[]>;
+
+  search(searchWord: string): Observable<Community[]>;
 }

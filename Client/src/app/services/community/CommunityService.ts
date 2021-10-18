@@ -13,6 +13,7 @@ export class CommunityService implements ICommunityService {
 
   private createCommunityUrl = `${environment.apiUrl}/Community/Create`;
   private getAllCommunitiesNotJoinedOrCreatedByUserUrl = `${environment.apiUrl}/Community/GetAllCommunitiesThatAreNotJoinedOrCreatedByUser`;
+  private searchUrl = `${environment.apiUrl}/Community?search=`;
 
   constructor(private http: HttpClient) {}
 
@@ -22,5 +23,9 @@ export class CommunityService implements ICommunityService {
 
   getAllCommunitiesNotJoinedOrCreatedByUser(): Observable<Community[]> {
     return this.http.get<Community[]>(this.getAllCommunitiesNotJoinedOrCreatedByUserUrl);
+  }
+
+  search(searchWord: string): Observable<Community[]> {
+    return this.http.get<Community[]>(`${this.searchUrl}${searchWord}`);
   }
 }
